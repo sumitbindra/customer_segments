@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>customer_segments</title>
+<title>customer_segments_v2</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -14713,17 +14713,18 @@ Once you have performed this implementation, the dataset will be stored in the v
 <li>How much variance in the data is explained<em> in total </em>by the first and second principal component? 0.7068</li>
 <li><p>How much variance in the data is explained by the first four principal components? 0.9311</p>
 </li>
-<li><p>Dimension 1 explain 44.3% of the variance with milk, grocery and detergent/paper as the most important features in explaining the negative variance. Dimension 1 can de described as 0.2xFresh - 0.4xMilk - 0.4xGrocery + 0.2xFrozen - 0.75xDetergent - 0.15xDeli.</p>
+<li><p>Dimension 1 explain 44.3% of the variance with milk, grocery and detergent/paper as the most important features in explaining the negative variance. Dimension 1 can de described as a customer buying a lot of milk, grocery and detergent which could be a grocery store.</p>
 </li>
-<li><p>Dimension 2 explain 26.38% of the variance with fresh, frozen and deli as the most important features in explaining the negative variance. Dimension 2 can de described as -0.7xFresh - 0.2xMilk - 0.05xGrocery - 0.5xFrozen - 0.25xDetergent - 0.45xDeli.</p>
+<li><p>Dimension 2 explain 26.38% of the variance with fresh, frozen and deli as the most important features in explaining the negative variance. Dimension 2 can de described as a customer that buys a lot of fresh, frozen and deli which could represent restaurant.</p>
 </li>
-<li><p>Dimension 3 explain 12.31% of the variance with fresh explaining the negative variance and frozen and deli explaining the positive variance. Dimension 3 can de described as -0.65xFresh + 0.025xMilk - 0.015xGrocery + 0.35xFrozen - 0.2xDetergent + 0.6xDeli.</p>
+<li><p>Dimension 3 explain 12.31% of the variance with fresh explaining the negative variance and frozen and deli explaining the positive variance. Dimension 3 can de described as a customer purchasing lot of fresh or customer that spends a lot on frozen and deli. This could represent either a cafe or a restaurant.</p>
 </li>
-<li><p>Dimension 4 explain 10.12% of the variance with deli explaining the negative variance and frozen explaining the positive variance. Dimension 4 can de described as - 0.2xFresh + 0.01xMilk + 0.025xGrocery + 0.75xFrozen + 0.2xDetergent - 0.55xDeli.</p>
+<li><p>Dimension 4 explain 10.12% of the variance with deli explaining the negative variance and frozen explaining the positive variance. Dimension 4 can de described as a customer buying a lot of frozen food or deli items. This could represent deli shop.</p>
 </li>
-<li><p>Dimension 5 explain 4.85% of the variance with detergent/paper explaining the negative variance and milk and grocery the positive variance.</p>
+<li><p>Dimension 5 explain 4.85% of the variance where a customer either purchases a lot of detergent/paper or milk and grocery products.</p>
 </li>
-<li>Dimension 6 explain 2.04% of the variance with milk explaining the negative variance and grocery explaining the positive variance.</li>
+<li><p>Dimension 6 explain 2.04% of the variance where a customer either purchases a lot of milk or grocery products.</p>
+</li>
 </ul>
 <p>**</p>
 
@@ -15397,8 +15398,8 @@ Sample point 2 predicted to be in Cluster 1
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>**Answer:</p>
-<p>Similar to AB testing, the wholesale retailer can chnge the delivery schedule for some of its cutomers from 5 to 3 days. Base on their new purchase orders, the wholesale retailer can determine their new cluster and if the customer has moved from a high volume cluster (retailer) to a low volume cluster (restaurant) then we know that the customer is reacting negatively.</p>
-<p>We can also create more than 2 clusters and establish an order of high volume to low volume clusters and use the technique described above i.e. if  customer moves towards higher volume clusters than positive else negative to determine what segments will react positively to the delivery schedule change.</p>
+<p>In AB testing, customers in a group or cluster are divided into two sub groups that are served different varities of the experiment. A/B testing (also sometimes referred to as split testing) is the practice of showing 2 variants of the same web page to different segments of visitors at the same time and comparing which variant drives more conversions. Typically, the one that gives higher conversions is the winning variant, applying which can help you optimize your site for better results (<a href="https://vwo.com/ab-testing/">https://vwo.com/ab-testing/</a>).</p>
+<p>In this case the distributor will take some customers from each cluster and change their delivery schedule from 5 to 3 days. Then the distributor will note their spending habits to determine if the cutomer is happy with the new schedule or not by nothing if the customer sub-segment with 3 days of delivery is ordering more or less than before and based on those results the wholesale distributor can determine which customers would react positively ot the change in delivery service.</p>
 <p>**</p>
 
 </div>
@@ -15420,7 +15421,8 @@ Sample point 2 predicted to be in Cluster 1
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>**Answer:</p>
-<p>Wholesale distributor can use the predict function in the model to predit the customer segmentation which requires the trained model and features that are the estimates of annual spending for each category by new customers. This new model will be a supervised learner model that will use the output of the unsupervised model (unlabeled customer segments) as the target variable.</p>
+<p>Wholesale distributor can use the predict function in the model to predit the customer segmentation which requires the trained model and features that are the estimates of annual spending for each category by new customers.</p>
+<p>Once the customer has a segmentation or cluster assigned to it, the value can then be used as a target variable in a supervised learning model such as decision trees or GMMs. Thus in summary, this new model will be a supervised learner model that will use the output of the unsupervised model (unlabeled customer segments) as the target variable.</p>
 <p>**</p>
 
 </div>
